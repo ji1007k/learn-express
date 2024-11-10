@@ -1,0 +1,34 @@
+# extension에서 rest client 설치 (postman, curl과 비슷)
+
+# ❶ server 변수 설정 
+@server = http://localhost:3000
+
+### ❷ GET 요청 보내기  
+GET {{server}}/users
+
+### ❸ POST 요청 보내기 
+POST {{server}}/users
+Content-Type: application/json
+
+{
+  "social_id": "admin",
+  "social_type": "local",
+  "password": "admin",
+  "email": "admin@test.com",
+  "name": "관리자",
+  "profile": "간단한 프로필 입력"
+}
+
+### ❹ 생성한 문서 확인 
+GET {{server}}/users/andy@backend.com
+
+### ❺ PUT 요청 보내기, 문서 수정하기 
+PUT {{server}}/users/andy@backend.com
+Content-Type: application/json
+
+{
+  "age": 32
+}
+
+### ❻ 문서 삭제하기 
+DELETE {{server}}/users/andy@backend.com

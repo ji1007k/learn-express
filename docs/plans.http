@@ -1,0 +1,36 @@
+# extension에서 rest client 설치 (postman, curl과 같은 api 테스트 도구)
+
+# ❶ server 변수 설정 
+@server = http://localhost:3000
+
+### ❷ GET 요청 보내기  
+GET {{server}}/plans
+
+### ❸ POST 요청 보내기 
+POST {{server}}/plans
+Content-Type: application/json
+
+{
+    "name": "플랜3",
+    "price": 200000,
+    "content": "플랜 설명입니다.",
+    "user_id": null,
+    "status": "active"
+  }
+
+### ❹ 생성한 문서 확인 
+GET {{server}}/plans?user_id=admin
+
+### ❺ PUT 요청 보내기, 문서 수정하기 
+PUT {{server}}/plans/6730a9252ca81214591faf79
+Content-Type: application/json
+
+{
+  "name": "수정된 플랜명",
+  "price": 50000,
+  "content": "수정된 플랜 설명",
+  "modified_dt": "2024-11-10T14:30:00Z"
+}
+
+### ❻ 문서 삭제하기 
+DELETE {{server}}/plans/6730a9252ca81214591faf79

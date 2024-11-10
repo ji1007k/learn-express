@@ -1,0 +1,30 @@
+
+프로젝트 세팅
+
+0) npm 패키지 매니저 초기화
+npm init -y
+
+1) express 패키지 설치
+npm i express-generator
+
+2) express 프로젝트 생성
+npx express-generator --view=ejs myBackendApp
++) --view=ejs 옵션 : 뷰 템플릿으로 ejs 사용
++) myBackendApp : 해당 이름의 루트 디렉토리를 갖는 프로젝트 생성
+
+npm install mongodb mongoose
+
+npm install http-errors
+
+nodemon 세팅 (파일이 변경될 때마다 Node.js 서버를 자동으로 재시작해 주는 도구)
+npm install --save-dev nodemon
++) --save-dev 옵션 : devDependencies에 추가
+
+프로젝트 실행 (package.json의 scripts 필드 확인)
+npm run dev
+
+
+Extensions 탭에서 "REST Client" 확장 프로그램 설치
+VSCode에서 바로 HTTP 요청 작성 및 응답 테스트 도구
+
+
