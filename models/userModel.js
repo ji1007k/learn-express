@@ -4,7 +4,7 @@ const Schema = mongoose.Schema;
 const schema = new Schema({
   // _id: mongoose.Schema.Types.ObjectId,
   password: { type: String },
-  social_id: { type: String, required: true },
+  social_id: { type: String, required: true, unique: true },
   social_type: { type: String, default: "local" },
   email: String,
   name: String,

@@ -5,7 +5,8 @@ const schema = new Schema({
   // _id: mongoose.Schema.Types.ObjectId,
   user_id: {
     type: mongoose.Schema.Types.ObjectId, // ObjectId 선언
-    ref: 'User' // 참조할 다른 모델 이름
+    ref: 'User', // 참조할 다른 모델 이름
+    required: true 
   },
   name: { type: String, required: true },
   price: { type: Number, required: true, default: 0 },

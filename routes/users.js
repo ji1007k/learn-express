@@ -51,7 +51,13 @@ router.post("/", async (req, res) => {
  */
 router.get("/:_id", async (req, res, next) => {
     try {
-        const user = await User.findOne({ _id: req.params._id });
+        // const user = await User.findOne({ _id: req.params._id }); 
+        const user = await User.findById(req.params._id); 
+
+        if (!plan) {
+          return res.status(404).send("User not found");
+        }
+
         res.send(user);
     } catch (error) {
         next(error);

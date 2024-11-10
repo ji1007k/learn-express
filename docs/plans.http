@@ -19,7 +19,10 @@ Content-Type: application/json
   }
 
 ### ❹ 생성한 문서 확인 
-GET {{server}}/plans?user_id=6730a9f4ed42f792a2d089d2
+GET {{server}}/plans?user_id=6730bdc794547f92d2d980ce
+
+### ❹-2 플랜 상세 조회
+GET {{server}}/plans/6730a9252ca81214591faf79
 
 ### ❺ PUT 요청 보내기, 문서 수정하기 
 PUT {{server}}/plans/6730a9252ca81214591faf79
