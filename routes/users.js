@@ -1,7 +1,9 @@
 const express = require('express');
+const bcrypt = require("bcryptjs");
+const User = require("../models/userModel");
+
 const router = express.Router();
 
-const User = require("../models/userModel");
 
 /**
  * 회원 목록 조회
@@ -39,6 +41,11 @@ router.get("/", async function (req, res, next) {
 router.post("/", async (req, res) => {
   try {
     const user = new User(req.body);
+    
+    // 비밀번호 암호화
+    const hashedPassword = await bcrypt.hash(user.password, 10);
+    user.password = hashedPassword;
+
     await user.save();
     res.send(user);
   } catch (error) {
@@ -54,7 +61,7 @@ router.get("/:_id", async (req, res, next) => {
         // const user = await User.findOne({ _id: req.params._id }); 
         const user = await User.findById(req.params._id); 
 
-        if (!plan) {
+        if (!user) {
           return res.status(404).send("User not found");
         }
 

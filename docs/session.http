@@ -1,0 +1,17 @@
+# extension에서 rest client 설치 (postman, curl과 비슷)
+
+# ❶ server 변수 설정 
+@server = http://localhost:3000
+
+### ❷ 로그인
+POST {{server}}/session/login
+Content-Type: application/json
+
+{
+  "social_id": "admin2",
+  "password": "admin2",
+  "social_type": "local"
+}
+
+### ❸ 로그아웃
+GET {{server}}/session/logout

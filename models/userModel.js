@@ -17,7 +17,7 @@ const schema = new Schema({
     type: Date,
     default: null, // 요청에 포함되지 않으면 null로 설정
   },
-  status: String,
+  status: { type: String, default: 'active' },
 });
 
 module.exports = mongoose.model("User", schema);

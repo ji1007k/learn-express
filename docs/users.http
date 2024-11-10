@@ -6,7 +6,7 @@
 ### ❷ GET 요청 보내기  
 GET {{server}}/users
 
-### ❸ POST 요청 보내기 
+### ❸ POST 요청 보내기 (회원 등록)
 POST {{server}}/users
 Content-Type: application/json
 
@@ -16,7 +16,8 @@ Content-Type: application/json
   "password": "admin2",
   "email": "admin2@test.com",
   "name": "관리자2",
-  "profile": "간단한 프로필 입력"
+  "profile": "간단한 프로필 입력",
+  "status": "active"
 }
 
 ### ❹ 회원 목록 조회
