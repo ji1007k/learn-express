@@ -11,15 +11,15 @@ POST {{server}}/plans
 Content-Type: application/json
 
 {
-    "name": "플랜3",
-    "price": 200000,
+    "name": "플랜4",
+    "price": 100000,
     "content": "플랜 설명입니다.",
     "user_id": null,
     "status": "active"
   }
 
 ### ❹ 생성한 문서 확인 
-GET {{server}}/plans?user_id=admin
+GET {{server}}/plans?user_id=6730a9f4ed42f792a2d089d2
 
 ### ❺ PUT 요청 보내기, 문서 수정하기 
 PUT {{server}}/plans/6730a9252ca81214591faf79

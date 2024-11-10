@@ -9,16 +9,21 @@ const User = require("../models/userModel");
 router.get("/", async function (req, res, next) {
   try {
     const option = {
-      $and: [
-        { user_id: { $ne: null } },
-        // { status: "active" },
-      ],
-      $or: [
-        { social_id: { $ne: null }},
-        { social_id: req.query.social_id },
-        { name: req.query.name }
-      ]
+      _id: { $ne: null },         // _id가 null이 아닌 조건
+      status: "active",           // status가 'active'인 조건
     };
+
+    // social_id 파라미터가 있을 경우 $or 조건에 추가
+    if (req.query.social_id) {
+      option.$or = option.$or || [];
+      option.$or.push({ social_id: { $regex: req.query.social_id, $options: 'i' } });
+    }
+
+    // name 파라미터가 있을 경우 $or 조건에 추가
+    if (req.query.name) {
+      option.$or = option.$or || [];
+      option.$or.push({ name: { $regex: req.query.name, $options: 'i' } });
+    }
 
     const user = await User.find(option);
     res.send(user);

@@ -11,24 +11,28 @@ POST {{server}}/users
 Content-Type: application/json
 
 {
-  "social_id": "admin",
+  "social_id": "admin2",
   "social_type": "local",
-  "password": "admin",
-  "email": "admin@test.com",
-  "name": "관리자",
+  "password": "admin2",
+  "email": "admin2@test.com",
+  "name": "관리자2",
   "profile": "간단한 프로필 입력"
 }
 
-### ❹ 생성한 문서 확인 
-GET {{server}}/users/andy@backend.com
+### ❹ 회원 목록 조회
+GET {{server}}/users?social_id=admin&name=ㅎㅇ
+
+### ❹-2 회원 상세 조회 
+GET {{server}}/users/6730bdc794547f92d2d980ce
 
 ### ❺ PUT 요청 보내기, 문서 수정하기 
-PUT {{server}}/users/andy@backend.com
+PUT {{server}}/users/6730bdc794547f92d2d980ce
 Content-Type: application/json
 
 {
-  "age": 32
+  "profile": "수정된 회원 프로필",
+  "modified_dt": "2024-11-10T14:30:00Z"
 }
 
 ### ❻ 문서 삭제하기 
-DELETE {{server}}/users/andy@backend.com
+DELETE {{server}}/users/6730c48f18d9f4b22a12ad38

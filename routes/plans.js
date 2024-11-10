@@ -12,7 +12,7 @@ router.get("/", async function (req, res, next) {
   try {
     const option = {
       $and: [
-        { user_id: req.params.user_id },
+        { user_id: req.query.user_id },
         { user_id: { $ne: null } },
         { status: "active" },
       ],
